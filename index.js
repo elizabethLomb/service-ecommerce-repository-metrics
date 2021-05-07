@@ -1,8 +1,8 @@
 process.env.SERVICE_ENV = process.env.SERVICE_ENV || 'local';
 
-const system = require('./system');
 const runner = require('systemic-domain-runner');
 const bunyan = require('bunyan');
+const system = require('./system');
 const { name } = require('./package.json');
 
 const emergencyLogger = process.env.SERVICE_ENV === 'local' ? console : bunyan.createLogger({ name });
