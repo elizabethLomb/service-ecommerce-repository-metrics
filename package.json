@@ -13,6 +13,7 @@
     "test": "SERVICE_ENV=test mocha --reporter spec './test/**/*.test.js'",
     "test-ci": "SERVICE_ENV=test mocha --reporter mocha-junit-reporter",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "manifest": "node_modules/make-manifest/bin/make-manifest",
     "qa": "npm run lint && npm run test",
     "precommit": "npm run lint",
@@ -20,11 +21,13 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run lint",
       "pre-push": "npm run test"
     }
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
     "chai": "^4.2.0",
     "eslint": "^6.7.1",
     "eslint-config-airbnb-base": "^14.0.0",
