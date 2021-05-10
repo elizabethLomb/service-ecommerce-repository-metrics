@@ -29,8 +29,8 @@ module.exports = () => {
 				.padEnd(6, ' '),
 			details: Object.keys(details).length ? `\n ${JSON.stringify(details, null, 2)}` : '',
 			errorMessage:
-				event.error &&
-				(event.error.message instanceof Object ? JSON.stringify(event.error.message) : event.error.message),
+				event.error
+				&& (event.error.message instanceof Object ? JSON.stringify(event.error.message) : event.error.message),
 			timestamp: event.timestamp.toISOString(),
 		});
 		const colour = colours[event.level] || colours.default;
@@ -39,7 +39,6 @@ module.exports = () => {
 		else if (data.errorMessage) log(colour(error.render(data)));
 		else log(colour(info.render(data)));
 	};
-
 
 	const start = async () => onMessage;
 
