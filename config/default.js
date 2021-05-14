@@ -41,4 +41,14 @@ module.exports = {
 		],
 		exclude: ['password', 'secret', 'token', 'request.headers.cookie', 'dependencies', 'devDependencies'],
 	},
+	// controller: {
+	// 	v1: {
+	// 		repository: {}
+	// 	}
+	// },
+	// githubApi: {
+	// 	v1: {
+	// 		url: `${process.env.GITHUB_API}/users/${process.env.OWNER}`
+	// 	}
+	// }
 };

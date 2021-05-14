@@ -1,8 +1,14 @@
-const System = require('systemic');
-const adminRoutes = require('./admin-routes');
+const System = require('systemic')
+const adminRoutes = require('./admin-routes')
+const errorRoutes = require('./error-routes')
+const v1ApiRoutes = require('./v1/api-routes')
 
 module.exports = new System({ name: 'routes' })
 	.add('routes.admin', adminRoutes())
 	.dependsOn('config', 'logger', 'app', 'middleware.prepper', 'manifest')
+	.add('routes.v1.api', v1ApiRoutes())
+	.dependsOn('app', 'logger', 'controller.v1.api')
+	.add('routes.error', errorRoutes())
+	.dependsOn('app', 'logger')
 	.add('routes')
-	.dependsOn('routes.admin');
+	.dependsOn('routes.admin', 'routes.v1.api', 'routes.error')
