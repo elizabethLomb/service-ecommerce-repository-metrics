@@ -1,6 +1,6 @@
 # service-ecommerce-repository-metrics
 
-Github PR
+service-ecommerce-repository-metrics
 
 
 # COMPONENTS

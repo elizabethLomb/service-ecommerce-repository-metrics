@@ -5,7 +5,7 @@ info:
   description: Documentation for service-ecommerce-repository-metrics synchronous api
   termsOfService: http://swagger.io/terms/
   contact:
-    name: author
+    name: GS
     email: author@domain.com
   license:
     name: Apache 2.0

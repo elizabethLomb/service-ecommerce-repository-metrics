@@ -1,7 +1,7 @@
 module.exports = {
 	server: {
 		host: '0.0.0.0',
-		port: process.env.SERVICE_PORT,
+		port: 4000,
 	},
 	routes: {
 		admin: {
