@@ -5,14 +5,25 @@ module.exports = {
 	},
 	routes: {
 		admin: {
-			swaggerValidator: {
-				apiDocEndpoint: '/__/docs/api',
-				validateRequests: true,
-				validateResponses: true,
-				validationEndpoint: '/test',
-				format: 'yaml',
-				yaml: {
-					file: './docs/syncapi.yaml',
+			swaggerOptions: {
+				swaggerDefinition: {
+					info: {
+						description: 'Documentation',
+						title: 'service-repository-metrics',
+						version: '1.0.0',
+					},
+					host: process.env.SERVICE_ENV || 'localhost:4000',
+					basePath: '/v1',
+					produces: ['application/json'],
+					schemes: ['http'],
+					securityDefinitions: {
+						JWT: {
+							type: 'apiKey',
+							in: 'header',
+							name: 'Authorization',
+							description: '',
+						},
+					},
 				},
 			},
 		},
