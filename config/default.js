@@ -6,27 +6,22 @@ module.exports = {
 	routes: {
 		admin: {
 			swaggerOptions: {
-				swaggerDefinition: {
-					info: {
-						description: 'Documentation',
-						title: 'service-repository-metrics',
-						version: '1.0.0',
-					},
-					host: process.env.SERVICE_ENV || 'localhost:4000',
-					basePath: '/v1',
-					produces: ['application/json'],
-					schemes: ['http'],
-					securityDefinitions: {
-						JWT: {
-							type: 'apiKey',
-							in: 'header',
-							name: 'Authorization',
-							description: '',
-						},
-					},
+				info: {
+					description: 'Documentatio',
+					title: 'service-ecommerce-repository-metrics',
+					version: '1.0.0',
+					contact: {
+						name: 'team',
+						email: '-'
+					}
 				},
-			},
-		},
+				servers: [],
+				security: {},
+				baseDir: process.cwd(),
+				swaggerUIPath: '/__/docs/api',
+				filesPattern: './**/**-routes.js'
+			}
+		}
 	},
 	logger: {
 		transport: 'console',
@@ -52,4 +47,9 @@ module.exports = {
 		],
 		exclude: ['password', 'secret', 'token', 'request.headers.cookie', 'dependencies', 'devDependencies'],
 	},
+	gitHubApi: {
+    url: process.env.SERVICE_GITHUB_API,
+		oauthUrl: process.env.GITHUB_OAUTH,
+		accessTokens: process.env.GITHUB_ACCESS_TOKEN
+  },
 };
